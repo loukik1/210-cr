@@ -7,19 +7,23 @@ pub struct Color {
 
 impl Color {
     pub fn new(r: u8, g: u8, b: u8) -> Color {
-        Color { r, g, b }
+        let c = Color { r, g, b };
+        c
     }
 
     pub fn new_red() -> Color {
-        Color::new(255, 0, 0)
+        let r = Color::new(255, 0, 0);
+        r
     }
 
     pub fn new_green() -> Color {
-        Color::new(0, 255, 0)
+        let g = Color::new(0, 255, 0);
+        g
     }
 
     pub fn new_blue() -> Color {
-        Color::new(0, 0, 255)
+        let b = Color::new(0, 0, 255);
+        b
     }
 
     /**
@@ -34,6 +38,7 @@ impl Color {
      * https://doc.rust-lang.org/std/primitive.u8.html
      */
     pub fn cross(c1: &Color, c2: &Color) -> Color {
-        unimplemented!();
+        let new_color = Color::new(c1.r.wrapping_add(c2.r), c1.g.wrapping_add(c2.g), c1.b.wrapping_add(c2.b));
+        new_color
     }
 }
